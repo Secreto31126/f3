@@ -59,19 +59,34 @@
 	});
 </script>
 
-<main class="flex h-screen w-screen flex-col items-center justify-center gap-4">
-	<select name="Capacitor" bind:value={name}>
-		{#each Object.keys(data.azules) as name}
-			<option value={name}>
-				{name}
-			</option>
-		{/each}
-	</select>
-	<label for="cooler" class="flex items-center gap-2">
-		Cooler
-		<input type="checkbox" name="Cooler" id="cooler" bind:checked={cooler} />
-	</label>
-	<div class="size-1/2">
+<main
+	class="mx-auto flex min-h-screen w-9/10 flex-col-reverse items-center justify-center gap-16 md:flex-row md:justify-around md:gap-4"
+>
+	<div class="flex flex-col items-center md:h-full md:w-5/9 md:justify-center">
 		<canvas bind:this={ctx}></canvas>
+	</div>
+	<div class="flex flex-col items-center justify-center gap-2 md:h-full md:w-1/3">
+		<select name="Capacitor" bind:value={name}>
+			{#each Object.keys(data.azules) as name}
+				<option value={name}>
+					{name}
+				</option>
+			{/each}
+		</select>
+		<label for="cooler" class="flex items-center gap-2">
+			Cooler
+			<input type="checkbox" name="Cooler" id="cooler" bind:checked={cooler} />
+		</label>
+		{#if name === 'Sin capacitor'}
+			{#if cooler}
+				<img src="/tp3/base-cooler.png" alt="Con cooler sin capacitor" />
+			{:else}
+				<img src="/tp3/base-uncooler.png" alt="Sin cooler sin capacitor" />
+			{/if}
+		{:else if cooler}
+			<img src="/tp3/cooler.png" alt="Con cooler" />
+		{:else}
+			<img src="/tp3/uncooler.png" alt="Sin cooler" />
+		{/if}
 	</div>
 </main>
