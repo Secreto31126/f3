@@ -77,16 +77,25 @@
 			Cooler
 			<input type="checkbox" name="Cooler" id="cooler" bind:checked={cooler} />
 		</label>
-		{#if name === 'Sin capacitor'}
-			{#if cooler}
-				<img src="/tp3/base-cooler.png" alt="Con cooler sin capacitor" />
-			{:else}
-				<img src="/tp3/base-uncooler.png" alt="Sin cooler sin capacitor" />
-			{/if}
-		{:else if cooler}
-			<img src="/tp3/cooler.png" alt="Con cooler" />
-		{:else}
-			<img src="/tp3/uncooler.png" alt="Sin cooler" />
-		{/if}
+		<img
+			src="/tp3/base-cooler.png"
+			alt="Con cooler sin capacitor"
+			class={name === 'Sin capacitor' && cooler ? '' : 'hidden'}
+		/>
+		<img
+			src="/tp3/base-uncooler.png"
+			alt="Sin cooler sin capacitor"
+			class={name === 'Sin capacitor' && !cooler ? '' : 'hidden'}
+		/>
+		<img
+			src="/tp3/cooler.png"
+			alt="Con cooler"
+			class={name !== 'Sin capacitor' && cooler ? '' : 'hidden'}
+		/>
+		<img
+			src="/tp3/uncooler.png"
+			alt="Sin cooler"
+			class={name !== 'Sin capacitor' && !cooler ? '' : 'hidden'}
+		/>
 	</div>
 </main>
