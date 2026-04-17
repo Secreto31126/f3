@@ -4,9 +4,9 @@
 <script lang="ts">
 	let v1 = $state(9.27);
 	let v2 = $state(1.52);
-	let r1 = $state(148.4);
+	let r3 = $state(148.4);
 	let r2 = $state(217);
-	let r3 = $state(386);
+	let r1 = $state(386);
 
 	let i3 = $derived(((v1 * r2) / (r1 + r2) + v2) / (r3 + (r1 * r2) / (r1 + r2)));
 	let i2 = $derived((i3 * r3 - v2) / r2);
