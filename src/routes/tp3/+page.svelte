@@ -67,7 +67,7 @@
 	</div>
 	<div class="flex flex-col items-center justify-center gap-2 md:h-full md:w-1/3">
 		<select name="Capacitor" bind:value={name}>
-			{#each Object.keys(data.azules) as name}
+			{#each Object.keys(data.azules) as name (name)}
 				<option value={name}>
 					{name}
 				</option>
