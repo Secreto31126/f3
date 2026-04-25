@@ -4,7 +4,7 @@ export const load = (async () => {
 	return {
 		leds: [
 			{
-				name: 'Orange',
+				name: 'Naranja',
 				color: 'oklch(70.5% 0.213 47.604)',
 				max_v: 3.1,
 				max_i: 20,
