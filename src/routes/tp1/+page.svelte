@@ -16,15 +16,14 @@
     const boom = $derived(volts >= led.max_v);
 </script>
 
-<div class="grid grid-rows-2 md:grid-cols-2">
+<div class="grid grid-rows-2 md:grid-cols-2 justify-center">
     <img
         src={!boom ? "/tp1/led.png" : "https://media.tenor.com/CF6RvBzqX5cAAAAM/boom-explosion.gif"}
         alt="{led.name} led"
-        class="mx-auto"
         style="background-color: color-mix(in oklab, {led.color} {!boom ? percent : 0}%, transparent);"
     />
 
-    <form class="flex flex-col justify-center w-5/6 gap-4">
+    <form class="flex flex-col items-center justify-center w-5/6 gap-4">
         <div class="flex">
             <label for="color">Color: </label>
             <select name="color" id="color" bind:value={selected}>
