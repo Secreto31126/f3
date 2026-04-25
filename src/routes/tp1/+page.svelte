@@ -10,14 +10,16 @@
 
     const current = $derived(led.vtoi(volts / 1000));
     const percent = $derived(Math.min(current / led.max_i * 100, 100));
+
+    const boom = $derived(volts > led.max_v);
 </script>
 
 <div class="grid grid-cols-2">
     <img
-        src="/tp1/led.png"
+        src={!boom ? "/tp1/led.png" : "https://media.tenor.com/CF6RvBzqX5cAAAAM/boom-explosion.gif"}
         alt="{led.name} led"
         class="mx-auto"
-        style="background-color: color-mix(in oklab, {led.color} {percent}%, transparent);"
+        style="background-color: color-mix(in oklab, {led.color} {!boom ? percent : 0}%, transparent);"
     />
 
     <form class="flex flex-col justify-center w-5/6 gap-4">
