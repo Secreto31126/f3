@@ -6,15 +6,13 @@
     let { data }: PageProps = $props();
 
     let selected = $state(0);
+    const led = $derived(data.leds[selected]);
 
     let value = $state(0);
-    let volts = $derived(value / scale);
-
-    const led = $derived(data.leds[selected]);
+    const volts = $derived(value / scale);
 
     const current = $derived(led.vtoi(volts));
     const percent = $derived(Math.min(current / led.max_i * 100, 100));
-
     const boom = $derived(volts >== led.max_v);
 </script>
 
@@ -36,7 +34,7 @@
             </select>
         </div>
 
-        <input type="range" name="voltage" id="voltage" min="0" max={led.max_v * scale} bind:{value}>
+        <input type="range" name="voltage" id="voltage" min="0" max={led.max_v * scale} bind:value>
         <label for="voltage">
             Voltaje: {volts}V
             <br />
