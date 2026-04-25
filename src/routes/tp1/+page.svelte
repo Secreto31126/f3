@@ -11,7 +11,7 @@
     const current = $derived(led.vtoi(volts / 1000));
     const percent = $derived(Math.min(current / led.max_i * 100, 100));
 
-    const boom = $derived(volts > led.max_v);
+    const boom = $derived(volts >== led.max_v);
 </script>
 
 <div class="grid grid-cols-2">
