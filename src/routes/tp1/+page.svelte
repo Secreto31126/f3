@@ -24,7 +24,7 @@
     />
 
     <form class="flex flex-col items-center justify-center gap-4">
-        <div class="flex">
+        <div class="flex w-full">
             <label for="color">Color: </label>
             <select name="color" id="color" bind:value={selected}>
                 {#each data.leds as { name }, i (name)}
