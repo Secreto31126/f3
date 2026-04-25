@@ -6,12 +6,12 @@ export const load = (async () => {
 			{
 				name: 'Orange',
 				color: 'oklch(70.5% 0.213 47.604)',
-				max_v: 3,
+				max_v: 3.1,
 				max_i: 20,
 				values: [
 					{ v: 0.0, i: 0.0 },
 					{ v: 0.47, i: 0.0 },
-					{ v: 0.9, i: 0.1 },
+					{ v: 0.9, i: 0.0 },
 					{ v: 1.49, i: 0.0 },
 					{ v: 2.0, i: 0.0 },
 					{ v: 2.52, i: 0.0 },
@@ -23,8 +23,13 @@ export const load = (async () => {
 					{ v: 3.1, i: 20.0 }
 				],
 				vtoi(volts: number) {
-					if (volts < 2.52) return 0;
-					return 0.188 - 0.0179 * volts + 0.551 * volts ** 2;
+					const x = this.values.findIndex(val => val.v > volts);
+
+					if (x === 0) return 0;
+
+					const start = this.values.at(x - 1);
+					const end = this.values.at(x);
+					return start.i + (end.i - start.i) * (volts - start.v) / (end.v - start.v);
 				}
 			}
 		] as const
