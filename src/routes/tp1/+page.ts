@@ -6,7 +6,7 @@ export const load = (async () => {
 			{
 				name: 'Naranja',
 				color: 'oklch(70.5% 0.213 47.604)',
-				max_v: 3.1,
+				max_v: 3.5,
 				max_i: 20,
 				values: [
 					{ v: 0.0, i: 0.0 },
