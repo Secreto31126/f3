@@ -16,7 +16,7 @@
     const boom = $derived(volts >= led.max_v);
 </script>
 
-<div class="grid grid-rows-2 md:grid-cols-2 justify-center">
+<div class="grid grid-rows-2 md:grid-cols-2 p-8 items-center">
     <img
         src={!boom ? "/tp1/led.png" : "https://media.tenor.com/CF6RvBzqX5cAAAAM/boom-explosion.gif"}
         alt="{led.name} led"
