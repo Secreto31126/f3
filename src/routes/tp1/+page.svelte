@@ -38,7 +38,7 @@
         <label for="voltage">
             Voltaje: {volts}V
             <br />
-            Corriente: {current}mA
+            Corriente: {current.toFixed(4)}mA
         </label>
     </form>
 </div>
