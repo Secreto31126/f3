@@ -23,8 +23,8 @@
         style="background-color: color-mix(in oklab, {led.color} {!boom ? percent : 0}%, transparent);"
     />
 
-    <form class="flex flex-col items-center justify-center gap-4">
-        <div class="flex w-full">
+    <form class="flex flex-col items-center justify-center gap-4 w-full">
+        <div class="flex">
             <label for="color">Color: </label>
             <select name="color" id="color" bind:value={selected}>
                 {#each data.leds as { name }, i (name)}
